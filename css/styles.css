@@ -104,7 +104,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
+main{padding: 50px;}
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -4239,14 +4239,13 @@ fieldset:disabled .btn {
   margin-bottom: 0;
   list-style: none;
 }
-
+.navbar-custom {
+  background-color: #f0834c; 
+}
 .nav-btns .store-open-btn {
   width: 100px;
 }
 
-.navbar-btns .refresh-btn .fa-door-open {
-  width: 10px;
-}
 
 .time {
   font-size: 25px;
@@ -12889,7 +12888,6 @@ body {
 }
 
 .sb-topnav .navbar-brand {
-  width: 100px;
   margin: 0;
 }
 

@@ -22,17 +22,19 @@ if (sidebarToggle) {
     });
 }
 
+// top-nav 시계
 function setClock() {
     let dateInfo = new Date();
     let hour = modifyNumber(dateInfo.getHours());
     let min = modifyNumber(dateInfo.getMinutes());
     let sec = modifyNumber(dateInfo.getSeconds());
     let year = dateInfo.getFullYear();
-    let month = dateInfo.getMonth() + 1; //monthIndex를 반환해주기 때문에 1을 더해준다.
+    let month = dateInfo.getMonth() + 1;
     let date = dateInfo.getDate();
     document.getElementById("time").innerHTML = hour + ":" + min + ":" + sec;
     document.getElementById("date").innerHTML = year + "년 " + month + "월 " + date + "일";
 }
+
 function modifyNumber(time) {
     if (parseInt(time) < 10) {
         return "0" + time;
@@ -42,5 +44,31 @@ function modifyNumber(time) {
 }
 window.onload = function () {
     setClock();
-    setInterval(setClock, 1000); //1초마다 setClock 함수 실행
+    setInterval(setClock, 1000);
 };
+
+// 매장 운영 상태 변경 버튼
+function storeStatus() {
+    let isOpen = true; // 매장의 초기 상태 (열림)
+    const storeStateColor = document.getElementById("storeStateColor");
+    const storeStateText = document.getElementById("storeStateText");
+    const icon = document.querySelector("#changeStoreStatusBtn i.fa-solid");
+    const btnTitle = document.getElementById("storeStatusBtnText");
+
+    document.getElementById("changeStoreStatusBtn").addEventListener("click", function() {
+        isOpen = !isOpen; // 상태 토글
+        if (isOpen) { // 매장이 열려있는 경우
+            storeStateColor.style.backgroundColor = "rgb(93, 232, 50)";
+            storeStateText.textContent = "영업중";
+            icon.classList.remove("fa-door-closed");
+            icon.classList.add("fa-door-open");
+            btnTitle.textContent = "매장 닫기";
+        } else { // 매장이 닫혀있는 경우
+            storeStateColor.style.backgroundColor = "grey";
+            storeStateText.textContent = "영업종료";
+            icon.classList.remove("fa-door-open");
+            icon.classList.add("fa-door-closed");
+            btnTitle.textContent = "매장 열기";
+        }
+    });
+}

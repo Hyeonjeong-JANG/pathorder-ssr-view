@@ -7,36 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>패스오더점주</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark d-flex justify-content-between">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark navbar-custom d-flex justify-content-between">
         <!-- Navbar Brand-->
-        <div class="navbar-btns d-flex">
-            <div class="navbar-brand ps-3 store-open-btn" id="openStoreBtn">
+        <div class="navbar-btns d-flex align-items-end">
+                         <div id="changeStoreStatusBtn" class="navbar-brand store-open-btn" style="margin-right: 10px;padding:5.5px 10px; cursor: pointer; background-color: black;">
                 <i class="fa-solid fa-door-open"></i>
-                <div class="btn-title">매장 열기</div>
+                <div class="btn-title" id="storeStatusBtnText">매장 닫기</div>
             </div>
-            <div class="navbar-brand ps-3 d-flex refresh-btn" id="refreshBtn">
-                <i class="fa-solid fa-arrows-rotate"></i>
-                <div class="btn-title">새로고침</div>
+            <div>
+                <div class="d-flex align-items-center" style="margin-bottom: 5px;">
+                    <div id="storeStateColor" style="background-color: rgb(93, 232, 50); width: 5px;height: 5px;border-radius: 50%; margin-right: 5px; color: rgba(255, 250, 250, 0);">
+                        .
+                   </div>
+                   <div id="storeStateText" style="font-size: 10px;">영업중</div>
+                </div>
+               
+                <div class="navbar-brand d-flex refresh-btn align-items-center justify-content-between" style="border: 1px solid orange;border-radius: 10px;padding: 0 5px;margin-bottom: 5px; background-color: white;color: black; cursor: pointer;" id="refreshBtn">
+                    <i class="fa-solid fa-arrows-rotate" style="width: 10px;"></i>
+                    <div class="btn-title">새로고침</div>
+                </div> 
             </div>
         </div>
-        <div class="digital-clock">
+<script>
+
+</script>
+        <div class="digital-clock" style="padding-right: 10px;">
             <div id="time" class="time"></div>
         </div>
         <!-- Navbar-->
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="position: relative;">
                 <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <a class="nav-link" href="#">
+                    <div class="nav d-flex align-items-center" style="font-size: 20px;">
+                        <a class="nav-link" href="#" style="padding: 20px;">
                             주문
                         </a>
                         <a class="nav-link" href="#">
@@ -47,13 +59,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
-                <div>
-                    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                            class="fas fa-bars"></i>사이드바</button>
+                <div style="position: absolute; right: -50px;">
+                    <div class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 d-flex align-items-center justify-content-center"style="width: 50px; height: 50px; background-color:orange;" id="sidebarToggle" href="#!"><i style="height: 25px; color: white;"
+                            class="fas fa-bars"></i></div>
                 </div>
             </nav>
         </div>
@@ -61,9 +69,6 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="date mt-4" id="date"></h1>
-                    <!-- <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Dashboard</li>
-                    </ol> -->
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card mb-4" style="font-size: 12px;">
@@ -90,7 +95,94 @@
                                 </div>
                                 <div>
                                     <button type="button" class="btn btn-outline-warning"
-                                        style="width: 100%;font-size: 12px;">주문접수하기</button>
+                                        style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card mb-4" style="font-size: 12px;">
+                                <div style="padding: 10px;">
+                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                        <button type="button" class="btn btn-success"
+                                            style="font-size: 12px; color:white"><b>조리중</b>
+                                            11: 23분
+                                            수령예정</button>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between"
+                                        style="margin-bottom: 10px;">
+                                        <div style="font-size: 15px;">
+                                            <div><b>테이크아웃</b></div>
+                                            <div style="font-size: 12px;">정현</div>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-outline-primary"
+                                                style="font-size: 12px;">상세<br />보기</button>
+                                        </div>
+                                    </div>
+                                    <div>생과일주스(1)</div>
+                                    <div>오전 11:03</div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-success"
+                                        style="width: 100%;font-size: 12px;padding: 10px 0;">조리완료</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card mb-4" style="font-size: 12px;">
+                                <div style="padding: 10px;">
+                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                        <button type="button" class="btn btn-warning"
+                                            style="font-size: 12px; color:white"><b>접수대기</b>
+                                            11: 23분
+                                            수령예정</button>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between"
+                                        style="margin-bottom: 10px;">
+                                        <div style="font-size: 15px;">
+                                            <div><b>테이크아웃</b></div>
+                                            <div style="font-size: 12px;">정현</div>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-outline-primary"
+                                                style="font-size: 12px;">상세<br />보기</button>
+                                        </div>
+                                    </div>
+                                    <div>생과일주스(1)</div>
+                                    <div>오전 11:03</div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-warning"
+                                        style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card mb-4" style="font-size: 12px;">
+                                <div style="padding: 10px;">
+                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                        <button type="button" class="btn btn-warning"
+                                            style="font-size: 12px; color:white"><b>접수대기</b>
+                                            11: 23분
+                                            수령예정</button>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between"
+                                        style="margin-bottom: 10px;">
+                                        <div style="font-size: 15px;">
+                                            <div><b>테이크아웃</b></div>
+                                            <div style="font-size: 12px;">정현</div>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="btn btn-outline-primary"
+                                                style="font-size: 12px;">상세<br />보기</button>
+                                        </div>
+                                    </div>
+                                    <div>생과일주스(1)</div>
+                                    <div>오전 11:03</div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-warning"
+                                        style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
                                 </div>
                             </div>
                         </div>
@@ -120,6 +212,9 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+    <script>
+        storeStatus();
+    </script>
 </body>
 
 </html>
