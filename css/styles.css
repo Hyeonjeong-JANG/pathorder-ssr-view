@@ -104,7 +104,11 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-main{padding: 50px;}
+
+main {
+  padding: 50px;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -4226,6 +4230,49 @@ fieldset:disabled .btn {
   border-top-right-radius: 0;
 }
 
+.hidden {
+  /* visibility: hidden; */
+}
+
+.modal-top-left>div>div {
+  margin-bottom: 5px;
+}
+
+.table-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.table thead {
+  background-color: #fff;
+  width: 530px;
+}
+
+.table tbody {
+  margin-top: 150px;
+}
+
+.table,
+.footer-table {
+  width: 100%;
+  /* 테이블 너비 */
+  border-collapse: collapse;
+  /* 셀 간격 제거 */
+}
+
+th,
+td {
+  /* border: 1px solid #ddd; */
+  /* 셀 테두리 스타일 */
+  padding: 8px;
+  /* 셀 내부 여백 */
+}
+
+.footer-table {
+  margin-top: 10px;
+  /* 위쪽 테이블과의 간격 */
+}
+
 .nav {
   --bs-nav-link-padding-x: 1rem;
   --bs-nav-link-padding-y: 0.5rem;
@@ -4239,9 +4286,11 @@ fieldset:disabled .btn {
   margin-bottom: 0;
   list-style: none;
 }
+
 .navbar-custom {
-  background-color: #f0834c; 
+  background-color: #f0834c;
 }
+
 .nav-btns .store-open-btn {
   width: 100px;
 }
@@ -8796,6 +8845,7 @@ fieldset:disabled .btn {
 
 .mb-4 {
   margin-bottom: 1.5rem !important;
+  padding: 0;
 }
 
 .mb-5 {

@@ -8,19 +8,19 @@
 // 
 
 
-// Toggle the side navigation
-const sidebarToggle = document.body.querySelector('#sidebarToggle');
-if (sidebarToggle) {
-    // Uncomment Below to persist sidebar toggle between refreshes
-    // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
-    //     document.body.classList.toggle('sb-sidenav-toggled');
-    // }
-    sidebarToggle.addEventListener('click', event => {
-        event.preventDefault();
-        document.body.classList.toggle('sb-sidenav-toggled');
-        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
-    });
-}
+// // Toggle the side navigation
+// const sidebarToggle = document.body.querySelector('#sidebarToggle');
+// if (sidebarToggle) {
+//     // Uncomment Below to persist sidebar toggle between refreshes
+//     // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+//     //     document.body.classList.toggle('sb-sidenav-toggled');
+//     // }
+//     sidebarToggle.addEventListener('click', event => {
+//         event.preventDefault();
+//         document.body.classList.toggle('sb-sidenav-toggled');
+//         localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+//     });
+// }
 
 // top-nav 시계
 function setClock() {
@@ -55,7 +55,7 @@ function storeStatus() {
     const icon = document.querySelector("#changeStoreStatusBtn i.fa-solid");
     const btnTitle = document.getElementById("storeStatusBtnText");
 
-    document.getElementById("changeStoreStatusBtn").addEventListener("click", function() {
+    document.getElementById("changeStoreStatusBtn").addEventListener("click", function () {
         isOpen = !isOpen; // 상태 토글
         if (isOpen) { // 매장이 열려있는 경우
             storeStateColor.style.backgroundColor = "rgb(93, 232, 50)";
@@ -72,3 +72,11 @@ function storeStatus() {
         }
     });
 }
+
+// 주문 상세 모달
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+})

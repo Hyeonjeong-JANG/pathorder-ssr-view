@@ -14,30 +14,198 @@
 </head>
 
 <body class="sb-nav-fixed">
+    <!-- 모달 아이디가 동적으로 들어온 아이디를 반영할 수 있게 해야 함 -->
+    <!-- 모달 시작 -->
+    <div class="modal fade" tabindex="-1" id="orderDetailModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content" style="overflow-y: auto; height: 100%;">
+                <div class="modal-body" style="border-radius: 8px; background-color: #fff; padding: 0;">
+                    <div class="container-fluid" style="padding: 0;">
+                        <div class="modal-header" style="background-color: navy; padding: 10px;">
+                            <h5 class="modal-title" style="color: white; font-size: 15px;">주문 상세내역</h5>
+                            <button type="button"
+                                style="border: 1px solid #65c6d3; border-radius:50%; background-color: #65c6d3; "
+                                class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div style="padding: 10px;">
+                            <div class="modal-top d-flex row-cols-2" style="height: 600px;">
+                                <!-- 주문 정보 -->
+                                <div class="modal-top-left">
+                                    <div style="margin-bottom: 10px;">
+                                        <b>1번 수령 예정 시각 바로 받으러 갈게요.</b>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex">
+                                            <div class="title">주문 일시: </div>
+                                            <div class="content">2024.05.11. 10:26</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="title">주문자: </div>
+                                            <div class="content">정현</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="title">휴대전화: </div>
+                                            <div class="content">010-1234-5678</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="title">주문 상태: </div>
+                                            <div class="content">조리 중</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 주문 메뉴 -->
+                                <div class="row modal-top-right">
+                                    <div class="table-container">
+                                        <table class="table" style="position: relative;">
+                                            <thead style="position:fixed;">
+                                                <tr>
+                                                    <th scope="col">메뉴</th>
+                                                    <th scope="col">수량</th>
+                                                    <th scope="col">금액</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>아메리카노</td>
+                                                    <td>1</td>
+                                                    <td>3,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>카페모카</td>
+                                                    <td>2</td>
+                                                    <td>9,000원</td>
+                                                </tr>
+                                                <!-- 목록 추가 -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <table class="table footer-table">
+                                        <tr>
+                                            <td colspan="2">결제금액</td>
+                                            <td>12,000원</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <div style="margin-right: 20px;">
+                                    <button type="button" class="btn btn-outline-secondary">🧾 주문인쇄</button>
+                                    <button type="button" class="btn btn-outline-secondary">🖨️ 영수증인쇄</button>
+                                </div>
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">✖️
+                                    결제취소</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 모달 끝 -->
     <nav class="sb-topnav navbar navbar-expand navbar-dark navbar-custom d-flex justify-content-between">
         <!-- Navbar Brand-->
         <div class="navbar-btns d-flex align-items-end">
-                         <div id="changeStoreStatusBtn" class="navbar-brand store-open-btn" style="margin-right: 10px;padding:5.5px 10px; cursor: pointer; background-color: black;">
+            <div id="changeStoreStatusBtn" class="navbar-brand store-open-btn"
+                style="margin-right: 10px;padding:5.5px 10px; cursor: pointer; background-color: black;">
                 <i class="fa-solid fa-door-open"></i>
                 <div class="btn-title" id="storeStatusBtnText">매장 닫기</div>
             </div>
             <div>
                 <div class="d-flex align-items-center" style="margin-bottom: 5px;">
-                    <div id="storeStateColor" style="background-color: rgb(93, 232, 50); width: 5px;height: 5px;border-radius: 50%; margin-right: 5px; color: rgba(255, 250, 250, 0);">
+                    <div id="storeStateColor"
+                        style="background-color: rgb(93, 232, 50); width: 5px;height: 5px;border-radius: 50%; margin-right: 5px; color: rgba(255, 250, 250, 0);">
                         .
-                   </div>
-                   <div id="storeStateText" style="font-size: 10px;">영업중</div>
+                    </div>
+                    <div id="storeStateText" style="font-size: 10px;">영업중</div>
                 </div>
-               
-                <div class="navbar-brand d-flex refresh-btn align-items-center justify-content-between" style="border: 1px solid orange;border-radius: 10px;padding: 0 5px;margin-bottom: 5px; background-color: white;color: black; cursor: pointer;" id="refreshBtn">
+
+                <div class="navbar-brand d-flex refresh-btn align-items-center justify-content-between"
+                    style="border: 1px solid orange;border-radius: 10px;padding: 0 5px;margin-bottom: 5px; background-color: white;color: black; cursor: pointer;"
+                    id="refreshBtn">
                     <i class="fa-solid fa-arrows-rotate" style="width: 10px;"></i>
                     <div class="btn-title">새로고침</div>
-                </div> 
+                </div>
             </div>
         </div>
-<script>
+        <script>
 
-</script>
+        </script>
         <div class="digital-clock" style="padding-right: 10px;">
             <div id="time" class="time"></div>
         </div>
@@ -48,27 +216,28 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" style="position: relative;">
                 <div class="sb-sidenav-menu">
                     <div class="nav d-flex align-items-center" style="font-size: 20px;">
-                        <div class="d-flex justify-content-center" style="position: relative;border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
+                        <div class="d-flex justify-content-center"
+                            style="position: relative;border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
                             <a class="nav-link" href="#" style="padding: 20px;margin-right: 5px;">
                                 주문
                             </a>
-                            <div class="new-popup-count hidden" id="newPopupCount" style="position: absolute;top: 50px;right: 70px;background-color: orange;border-radius: 5px;padding: 0 4px;font-size: 10px;color: black;">17</div>
+                            <div class="new-popup-count hidden" id="newPopupCount"
+                                style="position: absolute;top: 50px;right: 70px;background-color: orange;border-radius: 5px;padding: 0 4px;font-size: 10px;color: black;">
+                                17</div>
                         </div>
-                        <div class="d-flex justify-content-center" style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
+                        <div class="d-flex justify-content-center"
+                            style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
                             <a class="nav-link" href="#">
                                 지난 주문
                             </a>
                         </div>
-                       <div class="d-flex justify-content-center" style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
-                        <a class="nav-link" href="#">
-                            메뉴
-                        </a>
-                       </div>
+                        <div class="d-flex justify-content-center"
+                            style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
+                            <a class="nav-link" href="#">
+                                메뉴
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div style="position: absolute; right: -50px;">
-                    <div class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0 d-flex align-items-center justify-content-center"style="width: 50px; height: 50px; background-color:orange;" id="sidebarToggle" href="#!"><i style="height: 25px; color: white;"
-                            class="fas fa-bars"></i></div>
                 </div>
             </nav>
         </div>
@@ -76,121 +245,114 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="date mt-4" id="date"></h1>
-                    <div class="row wrap">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card mb-4" style="font-size: 12px;">
-                                <div style="padding: 10px;">
-                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
-                                        <button type="button" class="btn btn-warning"
-                                            style="font-size: 12px; color:white"><b>접수대기</b>
-                                            11: 23분
-                                            수령예정</button>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between"
-                                        style="margin-bottom: 10px;">
-                                        <div style="font-size: 15px;">
-                                            <div><b>테이크아웃</b></div>
-                                            <div style="font-size: 12px;">정현</div>
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                style="font-size: 12px;">상세<br />보기</button>
-                                        </div>
-                                    </div>
-                                    <div>생과일주스(1)</div>
-                                    <div>오전 11:03</div>
+                    <div class="row row-cols-4 gap-3">
+                        <div class="card mb-4" style="font-size: 12px;">
+                            <div style="padding: 10px;">
+                                <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-warning"
+                                        style="font-size: 12px; color:white"><b>접수대기</b>
+                                        11: 23분
+                                        수령예정</button>
                                 </div>
-                                <div>
-                                    <button type="button" class="btn btn-outline-warning"
-                                        style="width: 100%;font-size: 12px;padding: 10px 0; ">주문접수하기</button>
+                                <div class="d-flex align-items-center justify-content-between"
+                                    style="margin-bottom: 10px;">
+                                    <div style="font-size: 15px;">
+                                        <div><b>테이크아웃</b></div>
+                                        <div style="font-size: 12px;">정현</div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-primary" style="font-size: 12px;"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#orderDetailModal">상세<br />보기</button>
+                                    </div>
                                 </div>
+                                <div>생과일주스(1)</div>
+                                <div>오전 11:03</div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-warning"
+                                    style="width: 100%;font-size: 12px;padding: 10px 0; ">주문접수하기</button>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card mb-4" style="font-size: 12px;">
-                                <div style="padding: 10px;">
-                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
-                                        <button type="button" class="btn btn-success"
-                                            style="font-size: 12px; color:white"><b>조리중</b>
-                                            11: 23분
-                                            수령예정</button>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between"
-                                        style="margin-bottom: 10px;">
-                                        <div style="font-size: 15px;">
-                                            <div><b>테이크아웃</b></div>
-                                            <div style="font-size: 12px;">정현</div>
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                style="font-size: 12px;">상세<br />보기</button>
-                                        </div>
-                                    </div>
-                                    <div>생과일주스(1)</div>
-                                    <div>오전 11:03</div>
+                        <div class="card mb-4" style="font-size: 12px;">
+                            <div style="padding: 10px;">
+                                <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-success"
+                                        style="font-size: 12px; color:white"><b>조리중</b>
+                                        11: 23분
+                                        수령예정</button>
                                 </div>
-                                <div>
-                                    <button type="button" class="btn btn-outline-success"
-                                        style="width: 100%;font-size: 12px;padding: 10px 0;">조리완료</button>
+                                <div class="d-flex align-items-center justify-content-between"
+                                    style="margin-bottom: 10px;">
+                                    <div style="font-size: 15px;">
+                                        <div><b>테이크아웃</b></div>
+                                        <div style="font-size: 12px;">정현</div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-primary"
+                                            style="font-size: 12px;">상세<br />보기</button>
+                                    </div>
                                 </div>
+                                <div>생과일주스(1)</div>
+                                <div>오전 11:03</div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-success"
+                                    style="width: 100%;font-size: 12px;padding: 10px 0;">조리완료</button>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card mb-4" style="font-size: 12px;">
-                                <div style="padding: 10px;">
-                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
-                                        <button type="button" class="btn btn-warning"
-                                            style="font-size: 12px; color:white"><b>접수대기</b>
-                                            11: 23분
-                                            수령예정</button>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between"
-                                        style="margin-bottom: 10px;">
-                                        <div style="font-size: 15px;">
-                                            <div><b>테이크아웃</b></div>
-                                            <div style="font-size: 12px;">정현</div>
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                style="font-size: 12px;">상세<br />보기</button>
-                                        </div>
-                                    </div>
-                                    <div>생과일주스(1)</div>
-                                    <div>오전 11:03</div>
+                        <div class="card mb-4" style="font-size: 12px;">
+                            <div style="padding: 10px;">
+                                <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-warning"
+                                        style="font-size: 12px; color:white"><b>접수대기</b>
+                                        11: 23분
+                                        수령예정</button>
                                 </div>
-                                <div>
-                                    <button type="button" class="btn btn-outline-warning"
-                                        style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
+                                <div class="d-flex align-items-center justify-content-between"
+                                    style="margin-bottom: 10px;">
+                                    <div style="font-size: 15px;">
+                                        <div><b>테이크아웃</b></div>
+                                        <div style="font-size: 12px;">정현</div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-primary"
+                                            style="font-size: 12px;">상세<br />보기</button>
+                                    </div>
                                 </div>
+                                <div>생과일주스(1)</div>
+                                <div>오전 11:03</div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-warning"
+                                    style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card mb-4" style="font-size: 12px;">
-                                <div style="padding: 10px;">
-                                    <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
-                                        <button type="button" class="btn btn-warning"
-                                            style="font-size: 12px; color:white"><b>접수대기</b>
-                                            11: 23분
-                                            수령예정</button>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between"
-                                        style="margin-bottom: 10px;">
-                                        <div style="font-size: 15px;">
-                                            <div><b>테이크아웃</b></div>
-                                            <div style="font-size: 12px;">정현</div>
-                                        </div>
-                                        <div>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                style="font-size: 12px;">상세<br />보기</button>
-                                        </div>
-                                    </div>
-                                    <div>생과일주스(1)</div>
-                                    <div>오전 11:03</div>
+                        <div class="card mb-4" style="font-size: 12px;">
+                            <div style="padding: 10px;">
+                                <div class="d-flex justify-content-start" style="margin-bottom: 10px;">
+                                    <button type="button" class="btn btn-warning"
+                                        style="font-size: 12px; color:white"><b>접수대기</b>
+                                        11: 23분
+                                        수령예정</button>
                                 </div>
-                                <div>
-                                    <button type="button" class="btn btn-outline-warning"
-                                        style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
+                                <div class="d-flex align-items-center justify-content-between"
+                                    style="margin-bottom: 10px;">
+                                    <div style="font-size: 15px;">
+                                        <div><b>테이크아웃</b></div>
+                                        <div style="font-size: 12px;">정현</div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-outline-primary"
+                                            style="font-size: 12px;">상세<br />보기</button>
+                                    </div>
                                 </div>
+                                <div>생과일주스(1)</div>
+                                <div>오전 11:03</div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-outline-warning"
+                                    style="width: 100%;font-size: 12px;padding: 10px 0;">주문접수하기</button>
                             </div>
                         </div>
                     </div>
