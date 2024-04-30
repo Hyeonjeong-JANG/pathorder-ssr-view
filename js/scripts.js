@@ -89,6 +89,14 @@ editMenuModal.addEventListener('shown.bs.modal', () => {
     editMenuInput.focus()
 })
 
+// 메뉴 수정 모달
+const addMenuModal = document.getElementById('addMenuModal')
+const addMenuInput = document.getElementById('addMenuInput')
+
+addMenuModal.addEventListener('shown.bs.modal', () => {
+    addMenuInput.focus()
+})
+
 // 옵션 추가 버튼
 function addOptionBtn(){
     document.addEventListener('DOMContentLoaded', function() {

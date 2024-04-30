@@ -14,7 +14,7 @@
 </head>
 
 <body class="sb-nav-fixed">
-    <!-- 모달 시작 -->
+    <!-- 메뉴 수정 모달 시작 -->
     <div class="modal fade" id="editMenuModal" tabindex="-1" aria-labelledby="editMenuModalLabel" data-bs-backdrop="static" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -60,7 +60,54 @@
           </div>
         </div>
       </div>
-    <!-- 모달 끝 -->
+    <!-- 메뉴 수정 모달 끝 -->
+    <!-- 메뉴 추가 모달 시작 -->
+    <div class="modal fade" id="addMenuModal" tabindex="-1" aria-labelledby="addMenuModalLabel" data-bs-backdrop="static" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addMenuModalLabel">메뉴 추가</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="category" class="col-form-label">카테고리</label>
+                  <input type="text" class="form-control" id="category">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="col-form-label">이름</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="price" class="col-form-label">가격</label>
+                    <input type="text" class="form-control" id="price">
+                  </div>
+                  <div class="mb-3">
+                    <label for="imgFilename" class="col-form-label">이미지</label>
+                    <input type="file" class="form-control" id="imgFilename">
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="col-form-label">설명</label>
+                    <input type="text" class="form-control" id="description">
+                  </div>
+                  <div id="optionFields">
+                    <div class="mb-3">
+                      <label for="option" class="col-form-label">옵션</label>
+                      <input type="text" class="form-control" name="option[]">
+                    </div>
+                  </div>
+                  <button type="button" id="addOption" class="btn btn-primary">+</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소하기</button>
+              <button type="submit" class="btn btn-primary">저장하기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- 메뉴 추가 모달 끝 -->
     <nav class="sb-topnav navbar navbar-expand navbar-dark navbar-custom d-flex justify-content-between">
         <!-- Navbar Brand-->
         <div class="navbar-btns d-flex align-items-end">
@@ -127,7 +174,11 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="date mt-4" id="date"></h1>
+                    <div class="d-flex align-items-end" style="margin-bottom: 10px;">
+                        <h1 class="date mt-4" style="color: white; margin-right: 10px; font-size: 30px;">메뉴 관리</h1>
+                        <button type="button" class="btn btn-warning"
+                        style="height: 48px;"  data-bs-toggle="modal" data-bs-target="#addMenuModal">➕</button>
+                    </div>
                     <div class="row row-cols-4 gap-3">
                         <div class="card mb-4" style="font-size: 12px;">
                             <div style="padding: 10px;">
