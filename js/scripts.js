@@ -99,19 +99,17 @@ addMenuModal.addEventListener('shown.bs.modal', () => {
 
 // 옵션 추가 버튼
 function addOptionBtn(){
-    document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('addOption').addEventListener('click', function() {
-          var container = document.getElementById('optionFields');
-          var newField = document.createElement('input');
-          newField.setAttribute('type', 'text');
-          newField.setAttribute('class', 'form-control');
-          newField.setAttribute('name', 'option[]');
-          
-          var newFieldWrapper = document.createElement('div');
-          newFieldWrapper.classList.add('mb-3');
-          newFieldWrapper.appendChild(newField);
-          
-          container.appendChild(newFieldWrapper);
-        });
-      });
+    document.getElementById('addOption').addEventListener('click', function() {
+        var container = document.getElementById('optionFields');
+        var newField = document.createElement('input');
+        newField.setAttribute('type', 'text');
+        newField.setAttribute('class', 'form-control');
+        newField.setAttribute('name', 'option[]');
+        
+        var newFieldWrapper = document.createElement('div');
+        newFieldWrapper.classList.add('mb-3');
+        newFieldWrapper.appendChild(newField);
+        
+        container.appendChild(newFieldWrapper);
+    });
 }
