@@ -52,7 +52,7 @@ function storeStatus() {
     let isOpen = true; // 매장의 초기 상태 (열림)
     const storeStateColor = document.getElementById("storeStateColor");
     const storeStateText = document.getElementById("storeStateText");
-    const icon = document.querySelector("#changeStoreStatusBtn i.fa-solid");
+    const icon = document.querySelector("#changeStoreStatusBtn .fa-solid");
     const btnTitle = document.getElementById("storeStatusBtnText");
 
     document.getElementById("changeStoreStatusBtn").addEventListener("click", function () {
@@ -74,9 +74,36 @@ function storeStatus() {
 }
 
 // 주문 상세 모달
-const myModal = document.getElementById('myModal')
-const myInput = document.getElementById('myInput')
+const orderDetailModal = document.getElementById('orderDetailModal')
+const orderDetaiInput = document.getElementById('orderDetaiInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-    myInput.focus()
+orderDetailModal.addEventListener('shown.bs.modal', () => {
+    orderDetaiInput.focus()
 })
+
+// 메뉴 수정 모달
+const editMenuModal = document.getElementById('editMenuModal')
+const editMenuInput = document.getElementById('editMenuInput')
+
+editMenuModal.addEventListener('shown.bs.modal', () => {
+    editMenuInput.focus()
+})
+
+// 옵션 추가 버튼
+function addOptionBtn(){
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('addOption').addEventListener('click', function() {
+          var container = document.getElementById('optionFields');
+          var newField = document.createElement('input');
+          newField.setAttribute('type', 'text');
+          newField.setAttribute('class', 'form-control');
+          newField.setAttribute('name', 'option[]');
+          
+          var newFieldWrapper = document.createElement('div');
+          newFieldWrapper.classList.add('mb-3');
+          newFieldWrapper.appendChild(newField);
+          
+          container.appendChild(newFieldWrapper);
+        });
+      });
+}

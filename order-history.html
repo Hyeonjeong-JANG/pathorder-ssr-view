@@ -242,73 +242,25 @@
                                 <td>{customerName}</td>
                                 <td><button class="detail-button" onclick="openModal('{orderId}')">📝</button></td>
                             </tr>
-                            {{/orderList}}
+                            {/orderList}
                             <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
-                            {{^orderList}}
+                            {^orderList}
                             <tr>
                                 <td colspan="7">주문 내역이 없습니다.</td>
                             </tr>
-                            {{/orderList}}
+                            {/orderList}
                         </tbody>
                     </table>
                 </div>
-
-                <!-- 주문 상세 모달 -->
-                <div id="orderDetailModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close" onclick="closeModal()">&times;</span>
-                        <div id="detailContent">
-                            <!-- 여기에 주문 상세 내용을 추가하세요 -->
-                        </div>
-                    </div>
-                </div>
-
-                <script>
-                    // 조회 버튼 클릭 시 호출되는 함수
-                    function searchOrders() {
-                        // 조회 로직을 여기에 추가
-                    }
-
-                    // 모달 열기 함수
-                    function openModal(orderId) {
-                        var modal = document.getElementById('orderDetailModal');
-                        modal.style.display = 'block';
-
-                        // 여기에 주문 상세 내용을 가져오는 로직을 추가하세요
-                        var detailContent = document.getElementById('detailContent');
-                        detailContent.innerHTML = "주문 상세 내용을 가져와서 여기에 표시하세요";
-                    }
-
-                    // 모달 닫기 함수
-                    function closeModal() {
-                        var modal = document.getElementById('orderDetailModal');
-                        modal.style.display = 'none';
-                    }
-                </script>
             </main>
-            <footer class="py-4 bg-light mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script src="js/datatables-simple-demo.js"></script>
     <script>
         storeStatus();
     </script>
