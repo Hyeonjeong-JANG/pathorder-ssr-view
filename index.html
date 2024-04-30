@@ -25,140 +25,71 @@
                         <div class="modal-header" style="background-color: navy; padding: 10px;">
                             <h5 class="modal-title" style="color: white; font-size: 15px;">주문 상세내역</h5>
                             <button type="button"
-                                style="border: 1px solid #65c6d3; border-radius:50%; background-color: #65c6d3; "
+                                style="border: 1px solid #65c6d3; border-radius:50%; background-color: #65c6d3; margin-right: 3px; width: 10px;height: 10px;"
                                 class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div style="padding: 10px;">
+                        <div style="padding: 20px;">
                             <div class="modal-top d-flex row-cols-2" style="height: 600px;">
                                 <!-- 주문 정보 -->
-                                <div class="modal-top-left">
+                                <div class="modal-top-left" style="margin-left: 10px;">
                                     <div style="margin-bottom: 10px;">
-                                        <b>1번 수령 예정 시각 바로 받으러 갈게요.</b>
+                                        <b>1번</b>
                                     </div>
                                     <div>
-                                        <div class="d-flex">
-                                            <div class="title">주문 일시: </div>
-                                            <div class="content">2024.05.11. 10:26</div>
+                                        <div style="margin-bottom: 10px;">
+                                            <div class="d-flex">
+                                                <div class="title" style="margin-right: 5px;">주문 일시:</div>
+                                                <div class="content">2024.05.11. 10:26</div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="title" style="margin-right: 5px;">주문자:</div>
+                                                <div class="content">정현</div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="title" style="margin-right: 5px;">휴대전화:</div>
+                                                <div class="content">010-1234-5678</div>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="title" style="margin-right: 5px;">주문 상태:</div>
+                                                <div class="content">조리 중</div>
+                                            </div>
                                         </div>
                                         <div class="d-flex">
-                                            <div class="title">주문자: </div>
-                                            <div class="content">정현</div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="title">휴대전화: </div>
-                                            <div class="content">010-1234-5678</div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="title">주문 상태: </div>
-                                            <div class="content">조리 중</div>
+                                            <div style="color: orangered; margin-right: 5px;">수령 예정 시각:</div>
+                                            <div>바로 받으러 갈게요.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 주문 메뉴 -->
-                                <div class="row modal-top-right">
-                                    <div class="table-container">
-                                        <table class="table" style="position: relative;">
-                                            <thead style="position:fixed;">
-                                                <tr>
+                                <div class="row modal-top-right" style="position: relative;">
+                                    <div style="height: 550px; border-bottom: 1px solid #e6e6e6;">
+                                        <table class="table" >
+                                            <thead>
+                                                <tr style="color: orangered;">
                                                     <th scope="col">메뉴</th>
-                                                    <th scope="col">수량</th>
-                                                    <th scope="col">금액</th>
+                                                    <th scope="col"  style="text-align: center;">수량</th>
+                                                    <th scope="col"  style="text-align: end;">금액</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody">
                                                 <tr>
                                                     <td>아메리카노</td>
-                                                    <td>1</td>
-                                                    <td>3,000원</td>
+                                                    <td  style="text-align: center;">1</td>
+                                                    <td style="text-align: end;">3,000원</td>
                                                 </tr>
                                                 <tr>
                                                     <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>카페모카</td>
-                                                    <td>2</td>
-                                                    <td>9,000원</td>
+                                                    <td  style="text-align: center;">2</td>
+                                                    <td style="text-align: end;">9,000원</td>
                                                 </tr>
                                                 <!-- 목록 추가 -->
                                             </tbody>
                                         </table>
                                     </div>
-                                    <table class="table footer-table">
+                                    <table class="table footer-table" style="height: 80px; border-bottom: 1px solid rgba(255, 255, 255, 0.0);">
                                         <tr>
-                                            <td colspan="2">결제금액</td>
-                                            <td>12,000원</td>
+                                            <td colspan="3" style="color: orangered;">결제금액</td>
+                                            <td style="text-align: end;">12,000원</td>
                                         </tr>
                                     </table>
                                 </div>
