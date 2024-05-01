@@ -13,14 +13,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
-        body {
+        /* body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-        }
+        } */
 
-        .container {
+        /* .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
@@ -126,7 +126,7 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
-        }
+        } */
     </style>
 </head>
 
@@ -220,41 +220,40 @@
                         <p>{year}년 {month}월 {day}일 주문 내역</p>
                     </div>
 
-                    <!-- 주문 내역 테이블 -->
-                    <table id="datatablesSimple">
-                        <thead>
-                            <tr>
-                                <th>주문번호</th>
-                                <th>주문상태</th>
-                                <th>주문시간</th>
-                                <th>주문내역</th>
-                                <th>결제금액</th>
-                                <th>닉네임</th>
-                                <th>주문상세</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- 주문 내역이 있을 경우에만 데이터를 표시 -->
-                            {#orderList}
-                            <tr class="order-row">
-                                <td>{orderNum}</td>
-                                <td>{status}</td>
-                                <td>{createdAt}</td>
-                                <td>{orderMenus}</td>
-                                <td>{totalAmount}</td>
-                                <td>{customerName}</td>
-                                <td><button class="detail-button" onclick="openModal('{orderId}')">📝</button></td>
-                            </tr>
-                            {/orderList}
-                            <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
-                            {^orderList}
-                            <tr>
-                                <td colspan="7">주문 내역이 없습니다.</td>
-                            </tr>
-                            {/orderList}
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-warning table-striped" style="background-color: rgb(235, 189, 104);">
+                    <thead>
+                        <tr>
+                            <th>주문번호</th>
+                            <th>주문상태</th>
+                            <th>주문시간</th>
+                            <th>주문내역</th>
+                            <th>결제금액</th>
+                            <th>닉네임</th>
+                            <th>주문상세</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 주문 내역이 있을 경우에만 데이터를 표시 -->
+                        {#orderList}
+                        <tr class="order-row">
+                            <td>{orderNum}</td>
+                            <td>{status}</td>
+                            <td>{createdAt}</td>
+                            <td>{orderMenus}</td>
+                            <td>{totalAmount}</td>
+                            <td>{customerName}</td>
+                            <td><button class="detail-button" onclick="openModal('{orderId}')">📝</button></td>
+                        </tr>
+                        {/orderList}
+                        <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
+                        {^orderList}
+                        <tr>
+                            <td colspan="7">주문 내역이 없습니다.</td>
+                        </tr>
+                        {/orderList}
+                    </tbody>
+
+                  </table>
             </main>
         </div>
     </div>
