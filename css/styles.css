@@ -106,7 +106,7 @@ body {
 }
 
 main {
-  padding: 50px;
+  padding: 30px;
 }
 
 hr {
@@ -2064,8 +2064,8 @@ progress {
 .table> :not(caption)>*>*,
 .datatable-table> :not(caption)>*>* {
   padding: 0.5rem 0.5rem;
-  background-color: var(--bs-table-bg);
-  border-bottom-width: 1px;
+  /* background-color: var(--bs-table-bg); */
+  /* border-bottom-width: 1px; */
   box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
@@ -4241,7 +4241,7 @@ fieldset:disabled .btn {
 
 .footer-table {
   margin-top: 10px;
-} 
+}
 
 .nav {
   --bs-nav-link-padding-x: 1rem;
@@ -4274,7 +4274,8 @@ fieldset:disabled .btn {
 .date {
   font-size: 20px;
   font-weight: bold;
-  color: black
+  color: white;
+  margin-bottom: 30px;
 }
 
 .nav-link {
@@ -6158,7 +6159,6 @@ fieldset:disabled .btn {
   --bs-modal-title-line-height: 1.5;
   --bs-modal-footer-gap: 0.5rem;
   --bs-modal-footer-bg: ;
-  --bs-modal-footer-border-color: var(--bs-border-color);
   --bs-modal-footer-border-width: 1px;
   position: fixed;
   top: 0;

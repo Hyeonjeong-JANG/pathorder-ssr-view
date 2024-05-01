@@ -31,65 +31,101 @@
                         <div style="padding: 20px;">
                             <div class="modal-top d-flex row-cols-2" style="height: 600px;">
                                 <!-- 주문 정보 -->
-                                <div class="modal-top-left" style="margin-left: 10px;">
+                                <div class="modal-top-left" style="margin-left: 10px; margin-right: 20px;">
                                     <div style="margin-bottom: 10px;">
                                         <b>1번</b>
                                     </div>
                                     <div>
-                                        <div style="margin-bottom: 10px;">
+                                        <div style="margin-bottom: 10px; font-weight: bold;">
                                             <div class="d-flex">
-                                                <div class="title" style="margin-right: 5px;">주문 일시:</div>
+                                                <div class="title" style="margin-right: 5px; width: 78px;">주문일시:
+                                                </div>
                                                 <div class="content">2024.05.11. 10:26</div>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="title" style="margin-right: 5px;">주문자:</div>
+                                                <div class="title" style="margin-right: 5px;width: 78px; ">주 문 자: </div>
                                                 <div class="content">정현</div>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="title" style="margin-right: 5px;">휴대전화:</div>
+                                                <div class="title" style="margin-right: 5px;width: 78px;">휴대전화: </div>
                                                 <div class="content">010-1234-5678</div>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="title" style="margin-right: 5px;">주문 상태:</div>
+                                                <div class="title" style="margin-right: 5px;width: 78px;">주문상태: </div>
                                                 <div class="content">조리 중</div>
                                             </div>
                                         </div>
                                         <div class="d-flex">
-                                            <div style="color: orangered; margin-right: 5px;">수령 예정 시각:</div>
+                                            <div style="color: orangered; margin-right: 5px;">수령 예정 시각: </div>
                                             <div>바로 받으러 갈게요.</div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- 주문 메뉴 -->
                                 <div class="row modal-top-right" style="position: relative;">
-                                    <div style="height: 550px; border-bottom: 1px solid #e6e6e6;">
-                                        <table class="table" >
+                                    <div style="height: 550px;">
+                                        <table class="table">
                                             <thead>
-                                                <tr style="color: orangered;">
+                                                <tr style="color: orangered; border-bottom: 1px solid black;">
                                                     <th scope="col">메뉴</th>
-                                                    <th scope="col"  style="text-align: center;">수량</th>
-                                                    <th scope="col"  style="text-align: end;">금액</th>
+                                                    <th scope="col" style="text-align: center;">수량</th>
+                                                    <th scope="col" style="text-align: end;">금액</th>
                                                 </tr>
                                             </thead>
-                                            <tbody">
-                                                <tr>
+                                            <tbody style="border-bottom: 1px solid #6b6868;">
+                                                <!-- 메뉴 하나의 틀 시작 -->
+                                                <!-- 메뉴 -->
+                                                <tr class="menu-column"
+                                                    style="font-weight: bold; border-top: 1px solid #6b6868;">
                                                     <td>아메리카노</td>
-                                                    <td  style="text-align: center;">1</td>
+                                                    <td style="text-align: center;">1</td>
                                                     <td style="text-align: end;">3,000원</td>
                                                 </tr>
-                                                <tr>
+                                                <!-- 옵션 -->
+                                                <tr class="option-column"
+                                                    style="font-size: 12px; color: #6b6868;  border-top: 2px dotted #e6e6e6;">
+                                                    <td>HOT</td>
+                                                    <td style="text-align: center;"></td>
+                                                    <td style="text-align: end;">0원</td>
+                                                </tr>
+                                                <tr class="option-column"
+                                                    style="font-size: 12px; color: #6b6868;  border-top: 2px dotted #e6e6e6;">
+                                                    <td>설탕 시럽</td>
+                                                    <td style="text-align: center;"></td>
+                                                    <td style="text-align: end;">0원</td>
+                                                </tr>
+                                                <!-- 메뉴 하나의 틀 끝 -->
+                                                <!-- 메뉴 하나의 틀 시작 -->
+                                                <!-- 메뉴 -->
+                                                <tr class="menu-column"
+                                                    style="font-weight: bold; border-top: 1px solid #6b6868;">
                                                     <td>카페모카</td>
-                                                    <td  style="text-align: center;">2</td>
+                                                    <td style="text-align: center;">2</td>
                                                     <td style="text-align: end;">9,000원</td>
                                                 </tr>
+                                                <!-- 옵션 -->
+                                                <tr class="option-column"
+                                                    style="font-size: 12px; color: #6b6868;  border-top: 2px dotted #e6e6e6;">
+                                                    <td>HOT</td>
+                                                    <td style="text-align: center;"></td>
+                                                    <td style="text-align: end;">0원</td>
+                                                </tr>
+                                                <tr class="option-column"
+                                                    style="font-size: 12px; color: #6b6868;  border-top: 2px dotted #e6e6e6;">
+                                                    <td>설탕 시럽</td>
+                                                    <td style="text-align: center;"></td>
+                                                    <td style="text-align: end;">0원</td>
+                                                </tr>
+                                                <!-- 메뉴 하나의 틀 끝 -->
                                                 <!-- 목록 추가 -->
                                             </tbody>
                                         </table>
                                     </div>
-                                    <table class="table footer-table" style="height: 80px; border-bottom: 1px solid rgba(255, 255, 255, 0.0);">
+                                    <table class="table footer-table"
+                                        style="height: 80px; border-bottom: 1px solid rgba(255, 255, 255, 0.0);">
                                         <tr>
-                                            <td colspan="3" style="color: orangered;">결제금액</td>
-                                            <td style="text-align: end;">12,000원</td>
+                                            <td colspan="3" style="color: orangered; font-weight: bold;">결제금액</td>
+                                            <td style="text-align: end; font-weight: bold;">12,000원</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -175,7 +211,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="date mt-4" id="date"></h1>
+                    <h1 class="date" id="date"></h1>
                     <div class="row row-cols-4 gap-3">
                         <div class="card mb-4" style="font-size: 12px;">
                             <div style="padding: 10px;">
