@@ -81,35 +81,53 @@ orderDetailModal.addEventListener('shown.bs.modal', () => {
     orderDetaiInput.focus()
 })
 
-// 메뉴 수정 모달
-const editMenuModal = document.getElementById('editMenuModal')
-const editMenuInput = document.getElementById('editMenuInput')
-
-editMenuModal.addEventListener('shown.bs.modal', () => {
-    editMenuInput.focus()
-})
-
-// 메뉴 수정 모달
-const addMenuModal = document.getElementById('addMenuModal')
-const addMenuInput = document.getElementById('addMenuInput')
+// 메뉴 추가 모달
+const addMenuModal = document.getElementById('addMenuModal');
+const addMenuInput = document.getElementById('addMenuInput');
 
 addMenuModal.addEventListener('shown.bs.modal', () => {
     addMenuInput.focus()
 })
 
 // 옵션 추가 버튼
-function addOptionBtn(){
-    document.getElementById('addOption').addEventListener('click', function() {
-        var container = document.getElementById('optionFields');
-        var newField = document.createElement('input');
+function addOptionBtnInAdd() {
+    document.getElementById('addOptionInAdd').addEventListener('click', function () {
+        let container = document.getElementById('optionFieldsInAdd');
+        let newField = document.createElement('input');
         newField.setAttribute('type', 'text');
         newField.setAttribute('class', 'form-control');
         newField.setAttribute('name', 'option[]');
-        
-        var newFieldWrapper = document.createElement('div');
+
+        let newFieldWrapper = document.createElement('div');
         newFieldWrapper.classList.add('mb-3');
         newFieldWrapper.appendChild(newField);
-        
+
+        container.appendChild(newFieldWrapper);
+    });
+}
+
+
+// 메뉴 수정 모달
+const editMenuModal = document.getElementById('editMenuModal');
+const editMenuInput = document.getElementById('editMenuInput');
+
+editMenuModal.addEventListener('shown.bs.modal', () => {
+    editMenuInput.focus()
+})
+
+// 옵션 추가 버튼
+function addOptionBtnInEdit() {
+    document.getElementById('addOptionInEdit').addEventListener('click', function () {
+        let container = document.getElementById('optionFieldsInEdit');
+        let newField = document.createElement('input');
+        newField.setAttribute('type', 'text');
+        newField.setAttribute('class', 'form-control');
+        newField.setAttribute('name', 'option[]');
+
+        let newFieldWrapper = document.createElement('div');
+        newFieldWrapper.classList.add('mb-3');
+        newFieldWrapper.appendChild(newField);
+
         container.appendChild(newFieldWrapper);
     });
 }
