@@ -4,7 +4,6 @@
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/LICENSE)
     */
 
-
 // top-nav 시계
 function setClock() {
     let dateInfo = new Date();
@@ -14,8 +13,8 @@ function setClock() {
     let year = dateInfo.getFullYear();
     let month = dateInfo.getMonth() + 1;
     let date = dateInfo.getDate();
-    document.getElementById("time").innerHTML = hour + ":" + min + ":" + sec;
-    document.getElementById("date").innerHTML = year + "년 " + month + "월 " + date + "일";
+    $("#time").html(hour + ":" + min + ":" + sec);
+    $("#date").html(year + "년 " + month + "월 " + date + "일");
 }
 
 function modifyNumber(time) {
@@ -25,92 +24,66 @@ function modifyNumber(time) {
     else
         return time;
 }
-window.onload = function () {
+$(function() {
     setClock();
     setInterval(setClock, 1000);
-};
+});
 
 // 매장 운영 상태 변경 버튼
 function storeStatus() {
-    let isOpen = true; // 매장의 초기 상태 (열림)
-    const storeStateColor = document.getElementById("storeStateColor");
-    const storeStateText = document.getElementById("storeStateText");
-    const icon = document.querySelector("#changeStoreStatusBtn .fa-solid");
-    const btnTitle = document.getElementById("storeStatusBtnText");
-
-    document.getElementById("changeStoreStatusBtn").addEventListener("click", function () {
-        isOpen = !isOpen; // 상태 토글
-        if (isOpen) { // 매장이 열려있는 경우
-            storeStateColor.style.backgroundColor = "rgb(93, 232, 50)";
-            storeStateText.textContent = "영업중";
-            icon.classList.remove("fa-door-closed");
-            icon.classList.add("fa-door-open");
-            btnTitle.textContent = "매장 닫기";
-        } else { // 매장이 닫혀있는 경우
-            storeStateColor.style.backgroundColor = "grey";
-            storeStateText.textContent = "영업종료";
-            icon.classList.remove("fa-door-open");
-            icon.classList.add("fa-door-closed");
-            btnTitle.textContent = "매장 열기";
+    let isOpen = true;
+    $("#changeStoreStatusBtn").click(function() {
+        isOpen = !isOpen;
+        if (isOpen) {
+            $("#storeStateColor").css("backgroundColor", "rgb(93, 232, 50)");
+            $("#storeStateText").text("영업중");
+            $(".icon").html('<i class="fa-solid fa-door-open"></i>');
+            $("#storeStatusBtnText").text("매장 닫기");
+        } else {
+            $("#storeStateColor").css("backgroundColor", "grey");
+            $("#storeStateText").text("영업종료");
+            $(".icon").html('<i class="fa-solid fa-door-closed"></i>');
+            $("#storeStatusBtnText").text("매장 열기");
         }
+        
     });
 }
+
+$(document).ready(function() {
+    storeStatus();
+});
 
 // 주문 상세 모달
-const orderDetailModal = document.getElementById('orderDetailModal')
-const orderDetaiInput = document.getElementById('orderDetaiInput')
-
-orderDetailModal.addEventListener('shown.bs.modal', () => {
-    orderDetaiInput.focus()
+$('#orderDetailModal').on('shown.bs.modal', function () {
+    $('#orderDetaiInput').focus();
 })
 
-// 메뉴 추가 모달
-const addMenuModal = document.getElementById('addMenuModal');
-const addMenuInput = document.getElementById('addMenuInput');
+$(document).ready(function() {
+    // 메뉴 추가 모달의 옵션 추가 기능
+    $('#addOptionInAdd').on('click', function() {
+        let newOptionDiv = $('<div class="mb-3 d-flex align-items-center"></div>');
+        let newOptionInput = $('<input type="text" class="form-control" name="option[]">');
+        let deleteButton = $('<button type="button" class="btn btn-danger ms-2">-</button>');
 
-addMenuModal.addEventListener('shown.bs.modal', () => {
-    addMenuInput.focus()
-})
+        deleteButton.on('click', function() {
+            $(this).parent().remove();
+        });
 
-// 옵션 추가 버튼
-function addOptionBtnInAdd() {
-    document.getElementById('addOptionInAdd').addEventListener('click', function () {
-        let container = document.getElementById('optionFieldsInAdd');
-        let newField = document.createElement('input');
-        newField.setAttribute('type', 'text');
-        newField.setAttribute('class', 'form-control');
-        newField.setAttribute('name', 'option[]');
-
-        let newFieldWrapper = document.createElement('div');
-        newFieldWrapper.classList.add('mb-3');
-        newFieldWrapper.appendChild(newField);
-
-        container.appendChild(newFieldWrapper);
+        newOptionDiv.append(newOptionInput).append(deleteButton);
+        $('#optionFieldsInAdd').append(newOptionDiv);
     });
-}
 
+    // 메뉴 수정 모달의 옵션 추가 기능
+    $('#addOptionInEdit').on('click', function() {
+        let newOptionDiv = $('<div class="mb-3 d-flex align-items-center"></div>');
+        let newOptionInput = $('<input type="text" class="form-control" name="option[]">');
+        let deleteButton = $('<button type="button" class="btn btn-danger ms-2">-</button>');
 
-// 메뉴 수정 모달
-const editMenuModal = document.getElementById('editMenuModal');
-const editMenuInput = document.getElementById('editMenuInput');
+        deleteButton.on('click', function() {
+            $(this).parent().remove();
+        });
 
-editMenuModal.addEventListener('shown.bs.modal', () => {
-    editMenuInput.focus()
-})
-
-// 옵션 추가 버튼
-function addOptionBtnInEdit() {
-    document.getElementById('addOptionInEdit').addEventListener('click', function () {
-        let container = document.getElementById('optionFieldsInEdit');
-        let newField = document.createElement('input');
-        newField.setAttribute('type', 'text');
-        newField.setAttribute('class', 'form-control');
-        newField.setAttribute('name', 'option[]');
-
-        let newFieldWrapper = document.createElement('div');
-        newFieldWrapper.classList.add('mb-3');
-        newFieldWrapper.appendChild(newField);
-
-        container.appendChild(newFieldWrapper);
+        newOptionDiv.append(newOptionInput).append(deleteButton);
+        $('#optionFieldsInEdit').append(newOptionDiv);
     });
-}
+});

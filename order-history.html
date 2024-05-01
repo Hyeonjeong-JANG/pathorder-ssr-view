@@ -10,6 +10,7 @@
     <title>주문 내역</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
         body {
@@ -135,7 +136,9 @@
         <div class="navbar-btns d-flex align-items-end">
             <div id="changeStoreStatusBtn" class="navbar-brand store-open-btn"
                 style="margin-right: 10px;padding:5.5px 10px; cursor: pointer; background-color: black;">
-                <i class="fa-solid fa-door-open"></i>
+                <div class="icon">
+                    <i class="fa-solid fa-door-open"></i>
+                </div>
                 <div class="btn-title" id="storeStatusBtnText">매장 닫기</div>
             </div>
             <div>
@@ -261,9 +264,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-    <script>
-        storeStatus();
-    </script>
+        <script>
+            storeStatus();
+            setClock();
+          </script>
 </body>
 
 </html>
