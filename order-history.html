@@ -182,8 +182,8 @@
                                 17</div>
                         </div>
                         <div class="d-flex justify-content-center"
-                            style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
-                            <a class="nav-link" href="#">
+                            style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;background-color: rgb(5, 5, 43);">
+                            <a class="nav-link" href="#" style="color: #e6e6e6;">
                                 지난 주문
                             </a>
                         </div>
@@ -239,7 +239,6 @@
                                 <span class="day" id="endDay">day</span>
                             </div>
                             <div>&nbsp;주문내역</div>
-                            <!-- <p>{year}년 {month}월 {day}일 주문 내역</p> -->
                         </div>
                     </div>
 
@@ -256,7 +255,7 @@
                         </thead>
                         <tbody>
                             <!-- 주문 내역이 있을 경우에만 데이터를 표시 -->
-                            {#orderList}
+                            <!-- {#orderList} -->
                             <tr class="order-row" onclick="openModal('{orderId}')">
                                 <td>{orderNum}</td>
                                 <td>{status}</td>
@@ -265,13 +264,13 @@
                                 <td>{totalAmount}</td>
                                 <td>{customerName}</td>
                             </tr>
-                            {/orderList}
+                            <!-- {/orderList} -->
                             <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
-                            {^orderList}
+                            <!-- {^orderList} -->
                             <tr>
                                 <td colspan="7">주문 내역이 없습니다.</td>
                             </tr>
-                            {/orderList}
+                            <!-- {/orderList} -->
                         </tbody>
                     </table>
                     <script>
