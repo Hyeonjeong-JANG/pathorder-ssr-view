@@ -91,7 +91,7 @@
         tbody tr:hover {
             background-color: #ddd;
         }
-
+ */
         .modal {
             display: none;
             position: fixed;
@@ -126,7 +126,11 @@
             color: black;
             text-decoration: none;
             cursor: pointer;
-        } */
+        }
+
+        .order-row {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -189,6 +193,12 @@
                                 메뉴
                             </a>
                         </div>
+                        <div class="d-flex justify-content-center"
+                            style="border-bottom: 1px solid #e6e6e6;width: 100%;padding: 20px;">
+                            <a class="nav-link" href="#">
+                                매장정보
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <!-- <div style="position: absolute; right: -50px;">
@@ -202,58 +212,90 @@
             <main>
                 <div class="container-fluid">
                     <!-- 상단 부분: 버튼들과 캘린더 -->
-                    <div class="top-container">
-                        <div>
-                            <button>그제</button>
-                            <button>어제</button>
-                            <button>오늘</button>
+                    <div class="search-orders" id="searchOrdersForm">
+                        <div class="top-container" style="color: white;">
+                            <div>
+                                <button class="2daysAgo">그제</button>
+                                <button class="1daysAgo">어제</button>
+                                <button class="today">오늘</button>
+                            </div>
+                            <div>
+                                <input type="date" id="startDate" name="startDate">
+                                <input type="date" id="endDate" name="endDate">
+                                <button type="submit" onclick="searchOrders()">조회</button>
+                            </div>
                         </div>
-                        <div>
-                            <input type="date" id="startDate" name="startDate">
-                            <input type="date" id="endDate" name="endDate">
-                            <button type="submit" onclick="searchOrders()">조회</button>
+                        <!-- 현재 날짜 표시 -->
+                        <div class="top-description d-flex" style="color: white; font-size: 20px;">
+                            <div class="dateRangeStart">
+                                <span class="year" id="startYear">year</span>
+                                <span class="month" id="startMonth">month</span>
+                                <span class="day" id="startDay">day</span>
+                            </div>
+                            <div>&nbsp;~&nbsp;</div>
+                            <div class="dateRangeEnd">
+                                <span class="year" id="endYear">year</span>
+                                <span class="month" id="endMonth">month</span>
+                                <span class="day" id="endDay">day</span>
+                            </div>
+                            <div>&nbsp;주문내역</div>
+                            <!-- <p>{year}년 {month}월 {day}일 주문 내역</p> -->
                         </div>
                     </div>
 
-                    <!-- 현재 날짜 표시 -->
-                    <div class="top-description">
-                        <p>{year}년 {month}월 {day}일 주문 내역</p>
-                    </div>
+                    <table class="table table-warning table-striped" style="background-color: rgb(235, 189, 104);">
+                        <thead>
+                            <tr>
+                                <th>주문번호</th>
+                                <th>주문상태</th>
+                                <th>주문시간</th>
+                                <th>주문내역</th>
+                                <th>결제금액</th>
+                                <th>닉네임</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 주문 내역이 있을 경우에만 데이터를 표시 -->
+                            {#orderList}
+                            <tr class="order-row" onclick="openModal('{orderId}')">
+                                <td>{orderNum}</td>
+                                <td>{status}</td>
+                                <td>{createdAt}</td>
+                                <td>{orderMenus}</td>
+                                <td>{totalAmount}</td>
+                                <td>{customerName}</td>
+                            </tr>
+                            {/orderList}
+                            <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
+                            {^orderList}
+                            <tr>
+                                <td colspan="7">주문 내역이 없습니다.</td>
+                            </tr>
+                            {/orderList}
+                        </tbody>
+                    </table>
+                    <script>
+                        // 조회 버튼 클릭 시 호출되는 함수
+                        function searchOrders() {
+                            // 조회 로직을 여기에 추가
+                        }
 
-                <table class="table table-warning table-striped" style="background-color: rgb(235, 189, 104);">
-                    <thead>
-                        <tr>
-                            <th>주문번호</th>
-                            <th>주문상태</th>
-                            <th>주문시간</th>
-                            <th>주문내역</th>
-                            <th>결제금액</th>
-                            <th>닉네임</th>
-                            <th>주문상세</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- 주문 내역이 있을 경우에만 데이터를 표시 -->
-                        {#orderList}
-                        <tr class="order-row">
-                            <td>{orderNum}</td>
-                            <td>{status}</td>
-                            <td>{createdAt}</td>
-                            <td>{orderMenus}</td>
-                            <td>{totalAmount}</td>
-                            <td>{customerName}</td>
-                            <td><button class="detail-button" onclick="openModal('{orderId}')">📝</button></td>
-                        </tr>
-                        {/orderList}
-                        <!-- 주문 내역이 없는 경우에는 메시지를 표시 -->
-                        {^orderList}
-                        <tr>
-                            <td colspan="7">주문 내역이 없습니다.</td>
-                        </tr>
-                        {/orderList}
-                    </tbody>
+                        // 모달 열기 함수
+                        function openModal(orderId) {
+                            var modal = document.getElementById('orderDetailModal');
+                            modal.style.display = 'block';
 
-                  </table>
+                            // 여기에 주문 상세 내용을 가져오는 로직을 추가하세요
+                            var detailContent = document.getElementById('detailContent');
+                            detailContent.innerHTML = "주문 상세 내용을 가져와서 여기에 표시하세요";
+                        }
+
+                        // 모달 닫기 함수
+                        function closeModal() {
+                            var modal = document.getElementById('orderDetailModal');
+                            modal.style.display = 'none';
+                        }
+                    </script>
             </main>
         </div>
     </div>
@@ -263,10 +305,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
-        <script>
-            storeStatus();
-            setClock();
-          </script>
+    <script>
+        storeStatus();
+        setClock();
+    </script>
 </body>
 
 </html>

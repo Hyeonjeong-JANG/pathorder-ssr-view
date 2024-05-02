@@ -24,7 +24,7 @@ function modifyNumber(time) {
     else
         return time;
 }
-$(function() {
+$(function () {
     setClock();
     setInterval(setClock, 1000);
 });
@@ -32,7 +32,7 @@ $(function() {
 // 매장 운영 상태 변경 버튼
 function storeStatus() {
     let isOpen = true;
-    $("#changeStoreStatusBtn").click(function() {
+    $("#changeStoreStatusBtn").click(function () {
         isOpen = !isOpen;
         if (isOpen) {
             $("#storeStateColor").css("backgroundColor", "rgb(93, 232, 50)");
@@ -45,11 +45,11 @@ function storeStatus() {
             $(".icon").html('<i class="fa-solid fa-door-closed"></i>');
             $("#storeStatusBtnText").text("매장 열기");
         }
-        
+
     });
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
     storeStatus();
 });
 
@@ -58,14 +58,14 @@ $('#orderDetailModal').on('shown.bs.modal', function () {
     $('#orderDetaiInput').focus();
 })
 
-$(document).ready(function() {
+$(document).ready(function () {
     // 메뉴 추가 모달의 옵션 추가 기능
-    $('#addOptionInAdd').on('click', function() {
+    $('#addOptionInAdd').on('click', function () {
         let newOptionDiv = $('<div class="mb-3 d-flex align-items-center"></div>');
         let newOptionInput = $('<input type="text" class="form-control" name="option[]">');
         let deleteButton = $('<button type="button" class="btn btn-danger ms-2">-</button>');
 
-        deleteButton.on('click', function() {
+        deleteButton.on('click', function () {
             $(this).parent().remove();
         });
 
@@ -74,16 +74,66 @@ $(document).ready(function() {
     });
 
     // 메뉴 수정 모달의 옵션 추가 기능
-    $('#addOptionInEdit').on('click', function() {
+    $('#addOptionInEdit').on('click', function () {
         let newOptionDiv = $('<div class="mb-3 d-flex align-items-center"></div>');
         let newOptionInput = $('<input type="text" class="form-control" name="option[]">');
         let deleteButton = $('<button type="button" class="btn btn-danger ms-2">-</button>');
 
-        deleteButton.on('click', function() {
+        deleteButton.on('click', function () {
             $(this).parent().remove();
         });
 
         newOptionDiv.append(newOptionInput).append(deleteButton);
         $('#optionFieldsInEdit').append(newOptionDiv);
+    });
+});
+
+// 주문 기록 검색 날짜 지정
+$(document).ready(function () {
+    $("button[type='submit']").click(function () {
+        searchOrders();
+    });
+
+    function searchOrders() {
+        // 시작 날짜와 종료 날짜 값을 가져옵니다.
+        var startDate = $("#startDate").val();
+        var endDate = $("#endDate").val();
+
+        // 날짜 값을 '-'를 기준으로 나누어 배열로 만듭니다.
+        var startArr = startDate.split("-");
+        var endArr = endDate.split("-");
+
+        // 시작 날짜와 종료 날짜를 페이지에 표시합니다.
+        $("#startYear").text(startArr[0]);
+        $("#startMonth").text(startArr[1]);
+        $("#startDay").text(startArr[2]);
+
+        // endYear 의 id를 수정해야 함을 주의하세요.
+        $("#endYear").text(endArr[0]);
+        $("#endMonth").text(endArr[1]);
+        $("#endDay").text(endArr[2]);
+    }
+});
+
+// 오늘, 어제, 그제
+$(document).ready(function () {
+    $(".2daysAgo, .1daysAgo, .today").click(function () {
+        let dateOffset = $(this).hasClass("2daysAgo") ? 2 : ($(this).hasClass("1daysAgo") ? 1 : 0);
+        let today = new Date();
+        let targetDate = new Date(today);
+        targetDate.setDate(today.getDate() - dateOffset);
+
+        let year = targetDate.getFullYear();
+        let month = ('0' + (targetDate.getMonth() + 1)).slice(-2);
+        let day = ('0' + targetDate.getDate()).slice(-2);
+
+        // 시작 날짜와 종료 날짜 설정
+        $("#startDate").val(year + '-' + month + '-' + day);
+        $("#endDate").val(year + '-' + month + '-' + day);
+
+        // 페이지의 다른 부분에 날짜 표시
+        $("#startYear, #endYear").text(year);
+        $("#startMonth, #endMonth").text(month);
+        $("#startDay, #endDay").text(day);
     });
 });
